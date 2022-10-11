@@ -1,9 +1,11 @@
 const axios = require('axios');
-
+const dotenv = require('dotenv');
+dotenv.config( { path : 'config.env'} )
+const PORT = process.env.PORT
 
 exports.homeRoutes = (req, res) => {
     // Make a get request to /api/users
-    axios.get('https://crud-app-noor.herokuapp.com:process.env.PORT/api/users')
+    axios.get('https://crud-app-noor.herokuapp.com:'+PORT+'/api/users')
         .then(function(response){
             res.render('index', { users : response.data });
         })
@@ -19,7 +21,7 @@ exports.add_user = (req, res) =>{
 }
 
 exports.update_user = (req, res) =>{
-    axios.get('https://crud-app-noor.herokuapp.com:process.env.PORT/api/users', { params : { id : req.query.id }})
+    axios.get('https://crud-app-noor.herokuapp.com:'+PORT+'/api/users', { params : { id : req.query.id }})
         .then(function(userdata){
             res.render("update_user", { user : userdata.data})
         })
