@@ -4,7 +4,7 @@ const axios = require('axios');
 //const PORT = process.env.PORT
 
 exports.homeRoutes = (req, res) => {
-   req.setTimeout(50000);
+   req.setTimeout(100000);
    // res.render('index',{users:[{},{},{}]})
    // Make a get request to /api/users
    axios.get('https://crud-app-noor.herokuapp.com:'+process.env.PORT+'/api/users')
