@@ -6,7 +6,7 @@ const axios = require('axios');
 exports.homeRoutes = (req, res) => {
    req.setTimeout(50000);
    // res.render('index',{users:[{},{},{}]})
-    Make a get request to /api/users
+   // Make a get request to /api/users
    axios.get('https://crud-app-noor.herokuapp.com:'+process.env.PORT+'/api/users')
       .then(function(response){
             res.render('index', { users : response.data });
