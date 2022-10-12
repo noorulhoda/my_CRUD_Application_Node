@@ -34,4 +34,4 @@ app.use('/', require('./server/routes/router'))
 
 var server =app.listen(process.env.PORT, ()=> { console.log(`Server is running on http://localhost:${process.env.PORT}`)});
 
-server.timeout = 10000;
+server.timeout = 100000;
