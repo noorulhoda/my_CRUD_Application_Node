@@ -4,15 +4,16 @@ const axios = require('axios');
 //const PORT = process.env.PORT
 
 exports.homeRoutes = (req, res) => {
-    res.render('index',{users:[{},{},{}]})
-    // Make a get request to /api/users
-   // axios.get('https://crud-app-noor.herokuapp.com:'+process.env.PORT+'/api/users')
-     //   .then(function(response){
-       //     res.render('index', { users : response.data });
-        //})
-        //.catch(err =>{
-          //  res.send(err);
-        //})
+   req.setTimeout(50000);
+   // res.render('index',{users:[{},{},{}]})
+    Make a get request to /api/users
+   axios.get('https://crud-app-noor.herokuapp.com:'+process.env.PORT+'/api/users')
+      .then(function(response){
+            res.render('index', { users : response.data });
+       })
+       .catch(err =>{
+         res.send(err);
+       })
 
     
 }
