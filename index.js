@@ -32,4 +32,6 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 // load routers
 app.use('/', require('./server/routes/router'))
 
-app.listen(process.env.PORT, ()=> { console.log(`Server is running on http://localhost:${process.env.PORT}`)});
+var server =app.listen(process.env.PORT, ()=> { console.log(`Server is running on http://localhost:${process.env.PORT}`)});
+
+server.timeout = 10000;
